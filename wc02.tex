@@ -27,8 +27,46 @@
   
   You are expected to submit an original proof (i.e. developed by you) that is correct and exhibits sound and precise argumentation. If you consult any sources for guidance, make sure to cite and acknowledge them duly. Your \LaTeX\ file should compile without errors on the instructors' machines. If you still use Overleaf, make sure that there are no warnings or errors. Files that do not compile cannot be graded.
   
-  \begin{solution}
-    % Enter your solution here.
+  \begin{solution} \\
+    % Enter your solution here. 
+    *This is not an original proof, This weekly challenge has been completed with the help of internet resources* \\ \\
+    Theorem: Let L $ \subseteq $ $ \Sigma^{x} $ and suppose L by NFA N = ($\Sigma$,Q,qo,F,$\delta$).
+    The there exists a DFA D = ($\Sigma$,$Q^{'}$,$q^{'}o$,$F^{'}$,$\delta^{'}$) that also accepts L.
+    Essentially the language accepted by an NFA will be accepted by DFA as well; L (N) = L (D) \\
+    \\
+    Defining the parameters of D: \\
+    1) $Q^{'}$ is equivalent to the power set of Q, $Q^{'}$ = $2^{Q}$ \\
+    2) $q^{'}$ = {qo} \\
+    3) $F^{'}$ is the set of states in $Q^{'}$ that contain any element of F, $F^{'}$ = (q$\in$$Q^{'}$ such that q $\cap$ F $\neq$ $\emptyset$) \\
+    4) $\delta^{'}$ is the transition function for D. $\delta^{'}$(q,a) \\
+    \\
+    Basis Step: \\
+    Assuming x is the empty string $\epsilon$. \\
+
+    $\delta^{'}$($q^{'}o$ , x) = $\delta^{'}$($q^{'}o$ , $\epsilon$) \\
+    $\delta^{'}$($q^{'}o$ , x) = $q^{'}o$ \\
+    $\delta^{'}$($q^{'}o$ , x) = $\delta$(qo,$\epsilon$) \\
+    $\delta^{'}$($q^{'}o$ , x) = $\delta$(qo,x) \\
+    
+    Inductive Step: \\
+    \\
+    Assume that for any y with $\mid$y$\mid$ $\ge$ 0, \\
+    \\
+    $\delta^{'}$($q^{'}o$,y) = $\delta^{'}$($qo$,y) \\
+    if we let n = $\mid$y$\mid$ then we need to prove that for a string z with $\mid$z$\mid$ = n + 1 \\
+    $\delta^{'}$($q^{'}o$,z) = $\delta$($qo$,z) \\
+    We can represent the string z as a concatenation of string y ($\mid$y$\mid$ = n) and symbol a from the alphabet $\Sigma$(a $\in$ $\Sigma$), so z = ya. \\
+    $\delta^{'}$($q^{'}o$,z) = $\delta^{'}$($q^{'}o$,ya) \\
+    $\delta^{'}$($q^{'}o$,z) = $\delta^{'}$($\delta^{'}$($q^{'}o$,y),a) \\
+    $\delta^{'}$($q^{'}o$,z) = $\delta^{'}$($\delta^{'}$($qo$,y),a) \\
+    $\delta^{'}$($q^{'}o$,z) = $\delta^{'}$($qo$,ay) \\
+    $\delta^{'}$($q^{'}o$,z) = $\delta^{'}$($qo$,z) \\ \\
+    DFA D accepts a string iff $\delta^{'}$(qo,x) $\in$ F$^{'}$. \\
+    So a string is accepted by DFA D if and only if ,it is accepted by NFA N.
+
+
+
+    
   \end{solution}
 \end{questions}
 \end{document}
